@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_120sdp"
         android:fontFamily="cursive"
-        android:text="@string/login"
+        android:text="@string/register"
         android:textColor="@color/mainAppColor"
         android:textSize="@dimen/_32ssp"
         android:textStyle="bold"
@@ -28,7 +28,7 @@
         android:layout_marginTop="@dimen/_26sdp"
         app:boxCornerRadiusTopEnd="@dimen/_22ssp"
         app:boxCornerRadiusTopStart="@dimen/_22ssp"
-        app:helperText="--"
+        app:helperText="@string/required"
         app:helperTextTextColor="@color/mainAppColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,12 +51,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_16sdp"
-        app:boxCornerRadiusBottomEnd="@dimen/_22ssp"
-        app:boxCornerRadiusBottomStart="@dimen/_22ssp"
         app:counterEnabled="true"
         app:counterMaxLength="16"
 
-        app:helperText="--"
+        app:helperText="@string/required"
         app:helperTextTextColor="@color/mainAppColor"
         app:layout_constraintTop_toBottomOf="@+id/email_container"
         app:passwordToggleEnabled="true">
@@ -67,32 +65,60 @@
             android:layout_height="match_parent"
             android:hint="@string/password"
             android:inputType="textPassword"
+
             android:lines="1"
             android:maxLength="16"
-
             android:paddingStart="@dimen/_22ssp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/confirm_password_container"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_22ssp"
+        app:boxCornerRadiusBottomStart="@dimen/_22ssp"
+        app:counterEnabled="true"
+        app:counterMaxLength="16"
+        app:helperText="@string/required"
+        app:helperTextTextColor="@color/mainAppColor"
+        app:layout_constraintTop_toBottomOf="@+id/password_container"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/confirm_password_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/connfirm_password"
+            android:inputType="textPassword"
+            android:lines="1"
+            android:maxLength="16"
+            android:paddingStart="@dimen/_22ssp"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/login_btn"
         android:layout_width="@dimen/_100sdp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_26sdp"
+        android:layout_marginTop="@dimen/_20ssp"
         android:backgroundTint="@color/mainAppColor"
-        android:text="@string/login"
+        android:text="@string/register"
         app:cornerRadius="@dimen/_22ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_container" />
+        app:layout_constraintTop_toBottomOf="@+id/confirm_password_container" />
 
     <TextView
         android:id="@+id/register_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/login"
         android:layout_marginTop="@dimen/_22ssp"
-        android:text="@string/register"
         android:textColor="@color/mainAppColor"
         android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_btn" />

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.wagba.R;
+import com.wagba.data.firebase.FirebaseHelper;
 import com.wagba.databinding.FragmentSecondBinding;
 
 public class HomeFragment extends Fragment {
@@ -30,12 +31,10 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(HomeFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
-            }
+        binding.buttonSecond.setOnClickListener(view1 -> {
+            FirebaseHelper.logoutUser();
+            NavHostFragment.findNavController(HomeFragment.this)
+                    .navigate(R.id.action_SecondFragment_to_FirstFragment);
         });
     }
 
