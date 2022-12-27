@@ -79,5 +79,12 @@ public class AuthenticationViewModel extends ViewModel {
         }
         return null;
     }
+    public CharSequence validConfirmation(String password, String confirmation) {
 
+        if (!password.equals(confirmation)) {
+            return "Passwords don't match";
+        }
+
+        return null;
+    }
 }
