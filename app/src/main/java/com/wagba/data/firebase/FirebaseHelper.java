@@ -25,8 +25,8 @@ public class FirebaseHelper {
        return firebaseAuth.signInWithEmailAndPassword(email , password);
     }
 
-    public static Boolean registerUser(String email , String password){
-         return firebaseAuth.createUserWithEmailAndPassword(email  , password).isSuccessful();
+    public static Task<AuthResult> registerUser(String email , String password){
+         return firebaseAuth.createUserWithEmailAndPassword(email  , password);
     }
 
     public static Task<SignInMethodQueryResult> checkEmailAvailability(String email){

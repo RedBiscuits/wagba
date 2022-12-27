@@ -15,9 +15,13 @@ import com.wagba.data.repositories.AuthenticationRepository;
 public class AuthenticationViewModel extends ViewModel {
 
     private MutableLiveData<Boolean> _login = new MutableLiveData<>();
-
     public LiveData<Boolean> getlogin() {
         return this._login;
+    }
+
+    private MutableLiveData<Boolean> _register = new MutableLiveData<>();
+    public LiveData<Boolean> getRegister() {
+        return this._register;
     }
 
     public void loginUser(String email, String password) {
@@ -27,6 +31,18 @@ public class AuthenticationViewModel extends ViewModel {
                         _login.postValue(true);
                     }else {
                         _login.postValue(false);
+                    }
+                });
+
+    }
+
+    public void registerUser(String email, String password) {
+        AuthenticationRepository.registerUser(email, password)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()){
+                        _register.postValue(true);
+                    }else {
+                        _register.postValue(false);
                     }
                 });
 

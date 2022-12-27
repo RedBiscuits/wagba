@@ -1,4 +1,4 @@
-package com.wagba.login.ui;
+package com.wagba.login;
 
 import android.os.Bundle;
 import android.util.Patterns;
@@ -31,7 +31,8 @@ public class LoginFragment extends Fragment {
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
-    ) {        viewModel = new ViewModelProvider(this).get(AuthenticationViewModel.class);
+    ) {
+        viewModel = new ViewModelProvider(this).get(AuthenticationViewModel.class);
         binding = FragmentLoginBinding.inflate(inflater, container, false);
 
 

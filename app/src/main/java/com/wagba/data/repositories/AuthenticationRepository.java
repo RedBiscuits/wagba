@@ -10,6 +10,10 @@ public class AuthenticationRepository {
         return FirebaseHelper.loginUser(email , password);
     }
 
+    public static Task<AuthResult> registerUser(String email , String password){
+        return FirebaseHelper.registerUser(email , password);
+    }
+
     public static Task<SignInMethodQueryResult> checkEmail(String email){
         return FirebaseHelper.checkEmailAvailability(email);
     }
