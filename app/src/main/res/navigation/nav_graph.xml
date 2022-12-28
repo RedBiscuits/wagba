@@ -39,4 +39,18 @@
             android:id="@+id/action_registerFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profile2"
+        android:name="com.wagba.ui.profile.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profile_to_personalInformation"
+            app:destination="@id/personalInformation" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalInformation"
+        android:name="com.wagba.ui.profile.PersonalInformation"
+        android:label="fragment_personal_information"
+        tools:layout="@layout/fragment_personal_information" />
 </navigation>
