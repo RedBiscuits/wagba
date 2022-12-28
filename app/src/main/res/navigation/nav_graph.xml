@@ -40,7 +40,7 @@
             app:destination="@id/SecondFragment" />
     </fragment>
     <fragment
-        android:id="@+id/profile2"
+        android:id="@+id/profile"
         android:name="com.wagba.ui.profile.Profile"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >

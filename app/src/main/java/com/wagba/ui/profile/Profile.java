@@ -36,8 +36,8 @@ public class Profile extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
          binding = FragmentProfileBinding.inflate(inflater, container, false);
-        binding.imageButton.setOnClickListener(view -> Navigation.findNavController(requireActivity(),R.id.action_profile_to_personalInformation));
-        binding.profielTv.setOnClickListener(view -> Navigation.findNavController(requireActivity(),R.id.action_profile_to_personalInformation));
+        binding.imageButton.setOnClickListener(view -> Navigation.findNavController(requireActivity(),R.id.nav_host_fragment_content_main).navigate(R.id.action_profile_to_personalInformation));
+        binding.profielTv.setOnClickListener(view -> Navigation.findNavController(requireActivity(),R.id.nav_host_fragment_content_main).navigate(R.id.action_profile_to_personalInformation));
         return binding.getRoot();
     }
 
