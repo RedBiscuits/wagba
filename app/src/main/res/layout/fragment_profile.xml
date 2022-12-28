@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.Profile">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/profileCard"
+            android:layout_width="@dimen/_300sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/engineer" />
+
+                <TextView
+                    android:id="@+id/nameTv"
+                    android:text="Ahmed Magdy"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/mainAppColor"
+                    android:textSize="@dimen/_15ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/numberTv"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textSize="@dimen/_15ssp"
+                    android:textColor="@color/mainAppColor"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/nameTv"
+                    app:layout_constraintStart_toStartOf="@+id/nameTv"
+                    app:layout_constraintTop_toBottomOf="@+id/nameTv"
+                    tools:text="010172112" />
+
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/nameTv"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.541" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/profielTv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:paddingStart="@dimen/_15sdp"
+            android:text="Profile"
+            android:paddingTop="@dimen/_8sdp"
+            android:textColor="@color/mainAppColor"
+            android:textSize="@dimen/_16ssp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.081"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileCard" />
+
+        <TextView
+            android:id="@+id/paymentsTv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:text="Payemnts"
+            android:textColor="@color/mainAppColor"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profielTv" />
+
+        <TextView
+            android:id="@+id/walletTv"
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:text="Wallet"
+            android:textColor="@color/mainAppColor"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintRight_toLeftOf="@id/walletAmountTv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/paymentsTv" />
+
+        <TextView
+            android:id="@+id/walletAmountTv"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="20dp"
+            android:text="TextView"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingStart="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.477"
+            android:textColor="#17406C"
+            app:layout_constraintStart_toEndOf="@+id/walletTv"
+            app:layout_constraintTop_toBottomOf="@+id/paymentsTv" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/logout_btn"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="177dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="60dp"
+        android:text="Log out"
+        android:textColor="@color/mainAppColor"
+        app:cornerRadius="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintCircleRadius="@dimen/_20sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/walletTv"
+        app:layout_constraintVertical_bias="0.642" />
+</androidx.constraintlayout.widget.ConstraintLayout>
