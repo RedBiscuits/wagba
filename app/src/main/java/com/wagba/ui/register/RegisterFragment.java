@@ -1,4 +1,4 @@
-package com.wagba.register.ui;
+package com.wagba.ui.register;
 
 import android.os.Bundle;
 
@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.wagba.R;
 import com.wagba.databinding.FragmentRegisterBinding;
-import com.wagba.viewmodels.AuthenticationViewModel;
+import com.wagba.ui.viewmodels.AuthenticationViewModel;
 
 import java.util.Objects;
 

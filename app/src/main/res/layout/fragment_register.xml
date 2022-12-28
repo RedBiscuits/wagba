@@ -26,9 +26,11 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_26sdp"
+        android:textColorHint="@color/plainTextColor"
         app:boxCornerRadiusTopEnd="@dimen/_22ssp"
         app:boxCornerRadiusTopStart="@dimen/_22ssp"
         app:helperText="@string/required"
+
         app:helperTextTextColor="@color/mainAppColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_16sdp"
+        android:textColorHint="@color/plainTextColor"
         app:counterEnabled="true"
         app:counterMaxLength="16"
 
@@ -77,10 +80,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_16sdp"
+        android:textColorHint="@color/plainTextColor"
         app:boxCornerRadiusBottomEnd="@dimen/_22ssp"
         app:boxCornerRadiusBottomStart="@dimen/_22ssp"
         app:counterEnabled="true"
         app:counterMaxLength="16"
+
         app:helperText="@string/required"
         app:helperTextTextColor="@color/mainAppColor"
         app:layout_constraintTop_toBottomOf="@+id/password_container"
@@ -94,8 +99,7 @@
             android:inputType="textPassword"
             android:lines="1"
             android:maxLength="16"
-            android:paddingStart="@dimen/_22ssp"
-            />
+            android:paddingStart="@dimen/_22ssp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
@@ -114,8 +118,8 @@
         android:id="@+id/to_login_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login"
         android:layout_marginTop="@dimen/_22ssp"
+        android:text="@string/login"
         android:textColor="@color/mainAppColor"
         android:textSize="@dimen/_15ssp"
         android:textStyle="bold"

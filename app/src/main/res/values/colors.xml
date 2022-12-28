@@ -10,6 +10,7 @@
     <color name="background">#F8F5F2</color>
     <color name="mainAppColor">#E84C4F</color>
     <color name="secondaryAppColor">#EDA345</color>
+    <color name="plainTextColor">#3E4462</color>
 
 
 </resources>

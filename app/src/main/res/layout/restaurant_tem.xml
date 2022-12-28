@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/restaurant_item"
+    android:layout_marginBottom="@dimen/_18ssp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/restaurant_image"
+        android:layout_marginTop="0dp"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_100sdp"
+
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/restaurant_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/plainTextColor"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:text="Restaurant"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintStart_toEndOf="@+id/restaurant_image"
+        app:layout_constraintTop_toTopOf="@+id/restaurant_image" />
+
+
+    <TextView
+        android:id="@+id/restaurant_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/plainTextColor"
+        android:layout_marginStart="@dimen/_24sdp"
+        android:text="Category"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintStart_toEndOf="@+id/restaurant_image"
+        app:layout_constraintTop_toBottomOf="@+id/restaurant_name" />
+</androidx.constraintlayout.widget.ConstraintLayout>

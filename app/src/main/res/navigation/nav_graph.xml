@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.wagba.login.LoginFragment"
+        android:name="com.wagba.ui.login.LoginFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_login">
 
@@ -20,9 +20,9 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.wagba.home.HomeFragment"
+        android:name="com.wagba.ui.home.HomeFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_home">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.wagba.register.ui.RegisterFragment"
+        android:name="com.wagba.ui.register.RegisterFragment"
         android:label="RegisterFragment" >
         <action
             android:id="@+id/action_registerFragment_to_FirstFragment"

@@ -8,10 +8,15 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.SignInMethodQueryResult;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.function.DoubleBinaryOperator;
 
 public class FirebaseHelper {
     static FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-
+    static FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private static final String restaurantCollection = "restaurants";
     public static FirebaseUser getCurrentUser(){
         return firebaseAuth.getCurrentUser();
     }
@@ -21,7 +26,6 @@ public class FirebaseHelper {
     }
 
     public static Task<AuthResult> loginUser(String email , String password){
-
        return firebaseAuth.signInWithEmailAndPassword(email , password);
     }
 
@@ -33,4 +37,7 @@ public class FirebaseHelper {
          return firebaseAuth.fetchSignInMethodsForEmail(email);
     }
 
+    public static Task<QuerySnapshot> getRestaurants(){
+        return db.collection(restaurantCollection).get();
+    }
 }

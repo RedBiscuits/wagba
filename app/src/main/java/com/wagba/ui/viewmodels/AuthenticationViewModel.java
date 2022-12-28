@@ -1,15 +1,11 @@
-package com.wagba.viewmodels;
+package com.wagba.ui.viewmodels;
 
 import android.util.Patterns;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.wagba.data.repositories.AuthenticationRepository;
 
 public class AuthenticationViewModel extends ViewModel {

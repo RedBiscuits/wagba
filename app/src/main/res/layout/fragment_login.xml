@@ -29,6 +29,7 @@
         app:boxCornerRadiusTopEnd="@dimen/_22ssp"
         app:boxCornerRadiusTopStart="@dimen/_22ssp"
         app:helperText="--"
+        android:textColorHint="@color/plainTextColor"
         app:helperTextTextColor="@color/mainAppColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +56,7 @@
         app:boxCornerRadiusBottomStart="@dimen/_22ssp"
         app:counterEnabled="true"
         app:counterMaxLength="16"
-
+        android:textColorHint="@color/plainTextColor"
         app:helperText="--"
         app:helperTextTextColor="@color/mainAppColor"
         app:layout_constraintTop_toBottomOf="@+id/email_container"
@@ -69,7 +70,6 @@
             android:inputType="textPassword"
             android:lines="1"
             android:maxLength="16"
-
             android:paddingStart="@dimen/_22ssp" />
     </com.google.android.material.textfield.TextInputLayout>
 
