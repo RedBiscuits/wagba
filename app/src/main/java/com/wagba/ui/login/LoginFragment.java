@@ -43,6 +43,7 @@ public class LoginFragment extends Fragment {
 
         emailFocusListener();
         passwordFocusListener();
+        binding.loginBtn.performClick();
         binding.loginBtn.setOnClickListener(view12 -> submitLogin());
         binding.registerText.setOnClickListener(view1 ->
                 Navigation.findNavController(requireActivity(),R.id.nav_host_fragment_content_main)

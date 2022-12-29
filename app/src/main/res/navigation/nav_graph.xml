@@ -24,7 +24,11 @@
         android:id="@+id/SecondFragment"
         android:name="com.wagba.ui.home.HomeFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_SecondFragment_to_foodFragment"
+            app:destination="@id/foodFragment" />
+    </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.wagba.ui.register.RegisterFragment"
@@ -54,4 +58,18 @@
         android:name="com.wagba.ui.profile.PersonalInformation"
         android:label="fragment_personal_information"
         tools:layout="@layout/fragment_personal_information" />
+    <fragment
+        android:id="@+id/foodFragment"
+        android:name="com.wagba.ui.home.food.FoodFragment"
+        android:label="fragment_food"
+        tools:layout="@layout/fragment_food" >
+        <argument
+            android:name="category"
+            app:argType="string"
+            android:defaultValue='"Pizza"' />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue='"Restaurant"' />
+    </fragment>
 </navigation>

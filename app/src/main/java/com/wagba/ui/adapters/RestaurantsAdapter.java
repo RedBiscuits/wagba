@@ -21,6 +21,10 @@ import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.wagba.R;
 import com.wagba.data.models.Restaurant;
+import com.wagba.ui.helpers.NavigationHelper;
+import com.wagba.ui.home.HomeFragmentDirections;
+import com.wagba.ui.home.food.FoodFragment;
+import com.wagba.ui.home.food.FoodFragmentArgs;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,10 +61,15 @@ public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantsAdapter.
                 .apply(requestOptions)
                 .skipMemoryCache(true)
                 .into(holder.restaurantImage);
+        HomeFragmentDirections.ActionSecondFragmentToFoodFragment
+                action = HomeFragmentDirections.actionSecondFragmentToFoodFragment();
 
-        holder.restaurantLayout.setOnClickListener(view ->
-                Toast.makeText(context , "Clicked" + restaurants.get(position).getName() , Toast.LENGTH_SHORT)
-                        .show());
+        holder.restaurantLayout.setOnClickListener(view -> {
+            action.setName(restaurants.get(position).getName());
+            action.setCategory(restaurants.get(position).getCategory());
+            NavigationHelper.navigate(action.getActionId());
+        }
+        );
 
     }
 
