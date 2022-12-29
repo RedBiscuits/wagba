@@ -11,16 +11,18 @@ import com.wagba.data.models.User;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {User.class},version = 1,exportSchema = false)
-abstract  class UserDb extends RoomDatabase {
-    public abstract UserDao moviesDao();
+@Database(entities = {User.class}, version = 1, exportSchema = false)
+public abstract class UserDb extends RoomDatabase {
+    public abstract UserDao userDao();
+
     private static volatile UserDb INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
     static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
-    public synchronized UserDb getDatabase(Context context) {
+
+    public static synchronized UserDb getDatabase(Context context) {
         if (INSTANCE == null) {
-            INSTANCE = Room.databaseBuilder(context.getApplicationContext(),UserDb.class,"Users")
+            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), UserDb.class, "Users")
                     .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .build();

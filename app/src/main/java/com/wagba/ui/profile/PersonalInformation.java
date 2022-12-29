@@ -1,6 +1,5 @@
 package com.wagba.ui.profile;
 
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,53 +9,48 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseUser;
-
-import com.google.firebase.auth.GetTokenResult;
-import com.wagba.data.firebase.FirebaseHelper;
+import com.wagba.data.db.UserDb;
+import com.wagba.data.models.User;
 import com.wagba.data.repositories.UserRepository;
 import com.wagba.databinding.FragmentPersonalInformationBinding;
 import com.wagba.ui.viewmodels.AuthenticationViewModel;
 import com.wagba.ui.viewmodels.UserViewModel;
+import com.wagba.ui.viewmodels.UserViewModelFactory;
 
 
 public class PersonalInformation extends Fragment {
-    AuthenticationViewModel authenticationViewModel;
     UserViewModel userViewModel;
-    FragmentPersonalInformationBinding binding ;
-    FirebaseUser user;
+    FragmentPersonalInformationBinding binding;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-      authenticationViewModel = new ViewModelProvider(this).get(AuthenticationViewModel.class);
-    //  userViewModel= new ViewModelProvider(this,ViewModelProvider.Factory.from(UserViewModelFactory)).get(UserViewModel(UserRepository).class);
+        UserViewModelFactory viewModelFactory = new UserViewModelFactory(requireContext());
+        userViewModel = new ViewModelProvider(this,
+                viewModelFactory)
+                .get(UserViewModel.class);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-         user =  FirebaseHelper.getCurrentUser();
+        User user = userViewModel.getUser().getValue();
 
-        binding = FragmentPersonalInformationBinding.inflate(inflater,container,false);
-        if (user !=null)
-            bind();
+        binding = FragmentPersonalInformationBinding.inflate(inflater, container, false);
+        if (user != null)
+            bind(user);
         return binding.getRoot();
     }
-    private void bind(){
-        binding.usernameTv.setText(user.getDisplayName());
-        binding.userEmailTv.setText(user.getEmail());
-        if (!user.isEmailVerified()) {
-            binding.emailVerfTv.setVisibility(View.VISIBLE);
-        }
 
-       binding.mobileNumTv.setText(user.getPhoneNumber());
+    private void bind(User user) {
+        binding.usernameTv.setText(user.getUsername());
+        binding.userEmailTv.setText(user.getEmail());
+        binding.mobileNumTv.setText(user.getPhoneNumber());
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding=null;
+        binding = null;
     }
 }
