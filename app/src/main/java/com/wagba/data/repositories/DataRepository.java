@@ -10,7 +10,7 @@ public class DataRepository {
         return FirebaseHelper.getRestaurants();
     }
 
-    public static Task<QuerySnapshot> getFoodByName(String name){
-        return FirebaseHelper.getFoodByName(name);
+    public static Task<QuerySnapshot> getFoodByCategory(String category){
+        return FirebaseHelper.getFoodByName(category);
     }
 }

@@ -42,6 +42,7 @@ public class RegisterFragment extends Fragment {
         passwordFocusListener();
         confirmationFocusListener();
 
+        binding.registerBtn.performClick();
         binding.registerBtn.setOnClickListener(view12 -> submitRegister());
         binding.toLoginText.setOnClickListener(view1 -> NavigationHelper.popUp()
                 );

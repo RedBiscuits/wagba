@@ -43,6 +43,6 @@ public class FirebaseHelper {
         return db.collection(restaurantCollection).get();
     }
     public static Task<QuerySnapshot> getFoodByName(String name){
-        return db.collection(foodCollection).whereEqualTo("restaurantName" ,name).get();
+        return db.collection(foodCollection).get();
     }
 }

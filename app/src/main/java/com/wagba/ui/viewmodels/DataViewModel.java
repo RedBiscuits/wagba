@@ -2,15 +2,11 @@ package com.wagba.ui.viewmodels;
 
 import android.os.Handler;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.wagba.data.models.Food;
 import com.wagba.data.models.Restaurant;
 import com.wagba.data.repositories.DataRepository;
@@ -53,14 +49,14 @@ public class DataViewModel extends ViewModel {
         },0);
     }
 
-    public void getFoodByName(String name){
+    public void getFoodByName(String category){
         new Handler().postDelayed(() -> {
             _error.postValue(false);
-            DataRepository.getFoodByName(name).addOnCompleteListener(task -> {
+            DataRepository.getFoodByCategory(category).addOnCompleteListener(task -> {
                 if (task.isSuccessful()){
                     List<Food> temp = new ArrayList<>();
-                    for (QueryDocumentSnapshot restaurant : task.getResult()){
-                        temp.add(restaurant.toObject(Food.class));
+                    for (QueryDocumentSnapshot food : task.getResult()){
+                        temp.add(food.toObject(Food.class));
                     }
                     _foodList.postValue(temp);
                 }else{
