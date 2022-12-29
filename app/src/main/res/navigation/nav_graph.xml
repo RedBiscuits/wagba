@@ -13,7 +13,9 @@
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/SecondFragment"
+            app:popUpTo="@id/nav_graph2"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_FirstFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
@@ -22,22 +24,17 @@
         android:id="@+id/SecondFragment"
         android:name="com.wagba.ui.home.HomeFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_home">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home"/>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.wagba.ui.register.RegisterFragment"
+        tools:layout="@layout/fragment_register"
         android:label="RegisterFragment" >
         <action
-            android:id="@+id/action_registerFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-        <action
             android:id="@+id/action_registerFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/SecondFragment"
+            app:popUpTo="@id/nav_graph2"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/profile"
@@ -47,6 +44,10 @@
         <action
             android:id="@+id/action_profile_to_personalInformation"
             app:destination="@id/personalInformation" />
+        <action
+            android:id="@+id/action_profile_to_FirstFragment"
+            app:destination="@id/FirstFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/personalInformation"

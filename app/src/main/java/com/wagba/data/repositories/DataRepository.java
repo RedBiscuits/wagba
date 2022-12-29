@@ -9,4 +9,8 @@ public class DataRepository {
     public static Task<QuerySnapshot> getRestaurantResponse(){
         return FirebaseHelper.getRestaurants();
     }
+
+    public static Task<QuerySnapshot> getFoodByName(String name){
+        return FirebaseHelper.getFoodByName(name);
+    }
 }

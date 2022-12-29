@@ -21,23 +21,16 @@ import com.wagba.ui.viewmodels.AuthenticationViewModel;
 public class PersonalInformation extends Fragment {
     AuthenticationViewModel authenticationViewModel;
     FragmentPersonalInformationBinding binding ;
-    public PersonalInformation() {
-        // Required empty public constructor
-    }
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
       authenticationViewModel = new ViewModelProvider(this).get(AuthenticationViewModel.class);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         FirebaseUser user =  FirebaseHelper.getCurrentUser();
 
         binding = FragmentPersonalInformationBinding.inflate(inflater,container,false);

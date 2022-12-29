@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.wagba.R;
 import com.wagba.databinding.FragmentRegisterBinding;
+import com.wagba.ui.helpers.NavigationHelper;
 import com.wagba.ui.viewmodels.AuthenticationViewModel;
 
 import java.util.Objects;
@@ -42,15 +43,14 @@ public class RegisterFragment extends Fragment {
         confirmationFocusListener();
 
         binding.registerBtn.setOnClickListener(view12 -> submitRegister());
-        binding.toLoginText.setOnClickListener(view1 ->
-                Navigation.findNavController(requireActivity(),R.id.nav_host_fragment_content_main)
-                        .navigate(R.id.action_registerFragment_to_FirstFragment));
+        binding.toLoginText.setOnClickListener(view1 -> NavigationHelper.popUp()
+                );
         viewModel.getRegister().observe(requireActivity(), result -> registerResponse(result));
     }
 
     private void registerResponse(Boolean it) {
         if (it) {
-            Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main).navigate(R.id.action_registerFragment_to_SecondFragment);
+            NavigationHelper.navigate(R.id.action_registerFragment_to_SecondFragment);
         } else {
             Toast.makeText(
                     requireContext(),

@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 
 import com.google.firebase.auth.FirebaseUser;
 import com.wagba.R;
+import com.wagba.data.firebase.FirebaseHelper;
 import com.wagba.databinding.FragmentProfileBinding;
+import com.wagba.ui.helpers.NavigationHelper;
 import com.wagba.ui.viewmodels.AuthenticationViewModel;
 
 
@@ -38,7 +40,15 @@ public class Profile extends Fragment {
          binding = FragmentProfileBinding.inflate(inflater, container, false);
         binding.imageButton.setOnClickListener(view -> Navigation.findNavController(requireActivity(),R.id.nav_host_fragment_content_main).navigate(R.id.action_profile_to_personalInformation));
         binding.profielTv.setOnClickListener(view -> Navigation.findNavController(requireActivity(),R.id.nav_host_fragment_content_main).navigate(R.id.action_profile_to_personalInformation));
+        binding.logoutBtn.setOnClickListener(view -> {
+            FirebaseHelper.logoutUser();
+            NavigationHelper.navigate(R.id.action_profile_to_FirstFragment);
+        });
+
         return binding.getRoot();
+
     }
+
+
 
 }

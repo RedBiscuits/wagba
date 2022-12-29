@@ -28,7 +28,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:text="Username"
                 android:textAlignment="viewStart"
-                android:textColor="@color/black"
+                android:textColor="@color/plainTextColor"
                 android:textSize="@dimen/_15ssp"
                 app:layout_constraintLeft_toRightOf="@id/personIv"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -84,7 +84,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:text="Email"
                 android:textAlignment="viewStart"
-                android:textColor="@color/black"
+                android:textColor="@color/plainTextColor"
                 android:textSize="@dimen/_15ssp"
                 app:layout_constraintLeft_toRightOf="@id/mailIv"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -115,7 +115,7 @@
                 android:layout_height="28dp"
                 android:layout_marginTop="12dp"
                 android:text="Email is not verified"
-                android:textColor="#ED0808"
+                android:textColor="@color/mainAppColor"
                 android:textSize="@dimen/_10ssp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -161,7 +161,7 @@
                 android:layout_marginStart="@dimen/_20sdp"
                 android:text="Mobile number"
                 android:textAlignment="viewStart"
-                android:textColor="@color/black"
+                android:textColor="@color/plainTextColor"
                 android:textSize="@dimen/_15ssp"
                 app:layout_constraintStart_toEndOf="@+id/phoneIV"
                 app:layout_constraintTop_toTopOf="parent" />

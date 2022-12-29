@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.function.DoubleBinaryOperator;
@@ -17,6 +18,7 @@ public class FirebaseHelper {
     static FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     static FirebaseFirestore db = FirebaseFirestore.getInstance();
     private static final String restaurantCollection = "restaurants";
+    private static final String foodCollection = "food";
     public static FirebaseUser getCurrentUser(){
         return firebaseAuth.getCurrentUser();
     }
@@ -39,5 +41,8 @@ public class FirebaseHelper {
 
     public static Task<QuerySnapshot> getRestaurants(){
         return db.collection(restaurantCollection).get();
+    }
+    public static Task<QuerySnapshot> getFoodByName(String name){
+        return db.collection(foodCollection).whereEqualTo("restaurantName" ,name).get();
     }
 }
