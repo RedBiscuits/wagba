@@ -1,6 +1,5 @@
 package com.wagba.ui.home;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,14 +11,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.wagba.data.models.Restaurant;
+import com.wagba.R;
 import com.wagba.databinding.FragmentHomeBinding;
 import com.wagba.ui.adapters.RestaurantsAdapter;
+import com.wagba.ui.helpers.NavigationHelper;
 import com.wagba.ui.helpers.ProgressHelper;
 import com.wagba.ui.viewmodels.DataViewModel;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -32,6 +29,7 @@ public class HomeFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
+        NavigationHelper.setActiveIcon(R.id.HomeItem);
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         viewModel = new ViewModelProvider(this).get(DataViewModel.class);
         adapter = new RestaurantsAdapter(requireContext());

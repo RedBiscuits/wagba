@@ -1,17 +1,15 @@
 package com.wagba.ui.register;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.wagba.R;
 import com.wagba.databinding.FragmentRegisterBinding;
@@ -43,9 +41,12 @@ public class RegisterFragment extends Fragment {
         confirmationFocusListener();
 
         binding.registerBtn.performClick();
-        binding.registerBtn.setOnClickListener(view12 -> submitRegister());
+        binding.registerBtn.setOnClickListener(view12 -> {
+            validateInput();
+            submitRegister();
+        });
         binding.toLoginText.setOnClickListener(view1 -> NavigationHelper.popUp()
-                );
+        );
         viewModel.getRegister().observe(requireActivity(), result -> registerResponse(result));
     }
 
@@ -72,12 +73,7 @@ public class RegisterFragment extends Fragment {
                     Objects.requireNonNull(binding.passwordEdittext.getText()).toString()
             );
         } else {
-            binding.emailContainer.setHelperText(viewModel.validEmail(binding.emailEdittext.getText().toString())) ;
-            binding.passwordContainer.setHelperText(viewModel.validPassword(binding.passwordEdittext.getText().toString()));
-            binding.confirmPasswordContainer.setHelperText(
-                    viewModel.validConfirmation(
-                            binding.passwordEdittext.getText().toString(),
-                            binding.confirmPasswordEdittext.getText().toString()));
+            validateInput();
         }
     }
 
@@ -101,10 +97,18 @@ public class RegisterFragment extends Fragment {
     private void passwordFocusListener() {
         binding.passwordEdittext.setOnFocusChangeListener((view, b) -> {
             if (!b)
-                binding.passwordContainer.setHelperText( viewModel.validPassword(binding.passwordEdittext.getText().toString()));
+                binding.passwordContainer.setHelperText(viewModel.validPassword(binding.passwordEdittext.getText().toString()));
 
         });
     }
 
+    private void validateInput() {
+        binding.emailContainer.setHelperText(viewModel.validEmail(binding.emailEdittext.getText().toString()));
+        binding.passwordContainer.setHelperText(viewModel.validPassword(binding.passwordEdittext.getText().toString()));
+        binding.confirmPasswordContainer.setHelperText(
+                viewModel.validConfirmation(
+                        binding.passwordEdittext.getText().toString(),
+                        binding.confirmPasswordEdittext.getText().toString()));
+    }
 
 }

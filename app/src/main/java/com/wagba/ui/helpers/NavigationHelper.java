@@ -1,16 +1,11 @@
 package com.wagba.ui.helpers;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.view.MenuItem;
 import android.view.View;
 
-import androidx.annotation.NonNull;
-import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.wagba.R;
 import com.wagba.ui.home.HomeFragmentDirections;
@@ -78,6 +73,10 @@ public class NavigationHelper {
             return false;
         });
 
+    }
+
+    public static void setActiveIcon(int id){
+        navigationView.setSelectedItemId(id);
     }
 
     private static void hideBottomNav(){

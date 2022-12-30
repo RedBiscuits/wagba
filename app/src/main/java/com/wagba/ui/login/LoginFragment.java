@@ -43,8 +43,10 @@ public class LoginFragment extends Fragment {
 
         emailFocusListener();
         passwordFocusListener();
-        binding.loginBtn.performClick();
-        binding.loginBtn.setOnClickListener(view12 -> submitLogin());
+        binding.loginBtn.setOnClickListener(view12 -> {
+            validateInput();
+            submitLogin();
+        });
         binding.registerText.setOnClickListener(view1 ->
                 Navigation.findNavController(requireActivity(),R.id.nav_host_fragment_content_main)
                         .navigate(R.id.action_FirstFragment_to_registerFragment));
@@ -62,14 +64,13 @@ public class LoginFragment extends Fragment {
     private void loginResponse(Boolean it) {
         if (it) {
             Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main).navigate(R.id.action_FirstFragment_to_SecondFragment);
-        } else {
+        } else{
             Toast.makeText(
                     requireContext(),
                     "Wrong credentials, try registering if your are not a registered user :)",
                     Toast.LENGTH_LONG
             ).show();
         }
-
     }
 
     private void submitLogin() {
@@ -81,12 +82,15 @@ public class LoginFragment extends Fragment {
                     Objects.requireNonNull(binding.passwordEdittext.getText()).toString()
             );
         } else {
-            binding.emailContainer.setHelperText(viewModel.validEmail(binding.emailEdittext.getText().toString())) ;
-            binding.passwordContainer.setHelperText(viewModel.validPassword(binding.passwordEdittext.getText().toString()));
+            validateInput();
         }
 
     }
 
+    private void validateInput(){
+        binding.emailContainer.setHelperText(viewModel.validEmail(binding.emailEdittext.getText().toString())) ;
+        binding.passwordContainer.setHelperText(viewModel.validPassword(binding.passwordEdittext.getText().toString()));
+    }
     private void emailFocusListener() {
         binding.emailEdittext.setOnFocusChangeListener((view, b) -> {
             if (!b)

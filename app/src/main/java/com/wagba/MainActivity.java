@@ -51,17 +51,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationHelper.navigationListener();
     }
 
-    @Override
-    public void onBackPressed() {
-
-        if (NavigationHelper.getNavController().getCurrentDestination().getId() == R.id.personalInformation){
-            NavigationHelper.getNavigationView().setSelectedItemId(R.id.profileItem);
-        }
-        else if(NavigationHelper.getNavigationView().getSelectedItemId () != R.id.HomeItem)
-            NavigationHelper.getNavigationView().setSelectedItemId(R.id.HomeItem);
-
-        super.onBackPressed();
-    }
 
     @Override
     public boolean onSupportNavigateUp() {
