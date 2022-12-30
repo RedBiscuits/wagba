@@ -42,7 +42,7 @@ public class FirebaseHelper {
     public static Task<QuerySnapshot> getRestaurants(){
         return db.collection(restaurantCollection).get();
     }
-    public static Task<QuerySnapshot> getFoodByName(String name){
-        return db.collection(foodCollection).get();
+    public static Task<QuerySnapshot> getFoodByCategory(String category){
+        return db.collection(foodCollection).whereEqualTo("category" , category).get();
     }
 }

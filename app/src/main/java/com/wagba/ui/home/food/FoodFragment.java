@@ -42,8 +42,10 @@ public class FoodFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.textView2.setText(FoodFragmentArgs.fromBundle(getArguments()).getName());
-        viewModel.getFoodByName(FoodFragmentArgs.fromBundle(getArguments()).getCategory());
+
+        ProgressHelper.show(requireContext());
+        binding.textView2.setText(FoodFragmentArgs.fromBundle(getArguments()).getRestaurant().getName());
+        viewModel.getFoodByName(FoodFragmentArgs.fromBundle(getArguments()).getRestaurant().getCategory());
         binding.foodRV.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.foodRV.setAdapter(adapter);
 
@@ -58,6 +60,8 @@ public class FoodFragment extends Fragment {
                 Toast.makeText(requireContext(),"Error occurred" , Toast.LENGTH_SHORT).show();
             }
         });
+
+        binding.foodReturn.setOnClickListener(view1 -> requireActivity().onBackPressed());
 
     }
 

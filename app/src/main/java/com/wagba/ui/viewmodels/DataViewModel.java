@@ -50,19 +50,24 @@ public class DataViewModel extends ViewModel {
     }
 
     public void getFoodByName(String category){
-        new Handler().postDelayed(() -> {
+        System.out.println("hamada");
             _error.postValue(false);
             DataRepository.getFoodByCategory(category).addOnCompleteListener(task -> {
+                System.out.println("hamada");
+                _foodList.postValue(new ArrayList<>());
                 if (task.isSuccessful()){
                     List<Food> temp = new ArrayList<>();
+                    System.out.println("mayada");
                     for (QueryDocumentSnapshot food : task.getResult()){
                         temp.add(food.toObject(Food.class));
+                        System.out.println(food.getData().toString());
                     }
                     _foodList.postValue(temp);
                 }else{
+                    System.out.println("hamada");
+
                     _error.postValue(true);
                 }
             });
-        },0);
     }
 }

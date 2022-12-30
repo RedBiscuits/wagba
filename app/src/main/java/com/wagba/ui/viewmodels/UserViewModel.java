@@ -33,7 +33,6 @@ public class UserViewModel extends ViewModel {
     private MutableLiveData<User> userMutableLiveData = new MutableLiveData<>();
 
     public LiveData<User> getUser() {
-        userMutableLiveData.setValue(getUserfromDb());
         return userMutableLiveData;
     }
 
@@ -50,8 +49,8 @@ public class UserViewModel extends ViewModel {
             Log.d("firebase user", "firebase user doesn't exist");
     }
 
-    private User getUserfromDb() {
-        return userRepository.getUser();
+    public void getUserFromDb() {
+        userMutableLiveData.postValue(userRepository.getUser());
     }
 
 }

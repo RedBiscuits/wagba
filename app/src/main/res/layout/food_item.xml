@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/food_item"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/_18ssp">
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -24,16 +24,27 @@
         android:layout_marginStart="@dimen/_12sdp"
         android:text="Food"
         android:textColor="@color/plainTextColor"
-        android:textSize="@dimen/_16ssp"
+        android:textSize="@dimen/_12ssp"
         app:layout_constraintStart_toEndOf="@+id/food_image"
         app:layout_constraintTop_toTopOf="@+id/food_image" />
 
-
+    <TextView
+        android:id="@+id/food_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:textColor="@color/plainTextColor"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/food_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_9sdp"
         android:text="Category"
         android:textColor="@color/plainTextColor"
         android:textSize="@dimen/_14ssp"
@@ -48,7 +59,9 @@
         android:text="@string/description"
         android:textColor="@color/plainTextColor"
         android:textSize="@dimen/_14ssp"
-        app:layout_constraintEnd_toEndOf="@+id/add_to_cart_btn"
+        android:layout_marginStart="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/food_image"
         app:layout_constraintTop_toBottomOf="@+id/food_category" />
 
 
@@ -56,14 +69,16 @@
         android:id="@+id/add_to_cart_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingVertical="@dimen/_2sdp"
-        android:paddingHorizontal="@dimen/_6sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="@dimen/_4sdp"
         android:backgroundTint="@color/mainAppColor"
+        android:paddingHorizontal="@dimen/_6sdp"
+        android:paddingVertical="@dimen/_2sdp"
         android:text="@string/addtocart"
-        android:textSize="@dimen/_11ssp"
+        android:textSize="@dimen/_8ssp"
         app:cornerRadius="@dimen/_22ssp"
         app:layout_constraintBottom_toBottomOf="@+id/food_image"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/food_description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

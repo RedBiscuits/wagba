@@ -2,7 +2,10 @@ package com.wagba.ui.profile;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
@@ -34,12 +37,20 @@ public class PersonalInformation extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        User user = userViewModel.getUser().getValue();
 
         binding = FragmentPersonalInformationBinding.inflate(inflater, container, false);
-        if (user != null)
-            bind(user);
+
         return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        userViewModel.getUserFromDb();
+        userViewModel.getUser().observe(requireActivity(), user -> {
+            if (user != null)
+                bind(user);
+        });
     }
 
     private void bind(User user) {

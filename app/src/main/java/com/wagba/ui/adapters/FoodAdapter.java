@@ -56,11 +56,12 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
                 .into(holder.foodImage);
         holder.addToCart.setOnClickListener(view -> Toast.makeText(context , "TODO" , Toast.LENGTH_SHORT).show());
         holder.foodDescription.setText(foodList.get(position).getDescription());
+        holder.foodPrice.setText(foodList.get(position).getPrice().toString() + ".LE");
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return foodList.size();
     }
 
     public class FoodViewHolder extends RecyclerView.ViewHolder {
@@ -69,8 +70,11 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         public TextView foodCategory;
         public MaterialButton addToCart;
         public TextView foodDescription;
+        public TextView foodPrice;
+
         public FoodViewHolder(@NonNull View itemView) {
             super(itemView);
+            this.foodPrice = itemView.findViewById(R.id.food_price);
             this.foodCategory = itemView.findViewById(R.id.food_category);
             this.foodName = itemView.findViewById(R.id.food_name);
             this.addToCart = itemView.findViewById(R.id.add_to_cart_btn);

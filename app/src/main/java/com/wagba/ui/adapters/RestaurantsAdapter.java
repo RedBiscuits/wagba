@@ -34,6 +34,7 @@ public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantsAdapter.
     List<Restaurant> restaurants = new ArrayList<>();
     Context context;
 
+
     public RestaurantsAdapter(Context context) {
         this.context = context;
     }
@@ -61,13 +62,12 @@ public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantsAdapter.
                 .apply(requestOptions)
                 .skipMemoryCache(true)
                 .into(holder.restaurantImage);
+
         HomeFragmentDirections.ActionSecondFragmentToFoodFragment
-                action = HomeFragmentDirections.actionSecondFragmentToFoodFragment();
+                action = HomeFragmentDirections.actionSecondFragmentToFoodFragment(restaurants.get(position));
 
         holder.restaurantLayout.setOnClickListener(view -> {
-            action.setName(restaurants.get(position).getName());
-            action.setCategory(restaurants.get(position).getCategory());
-            NavigationHelper.navigate(action.getActionId());
+            NavigationHelper.navigate(action);
         }
         );
 
@@ -92,4 +92,6 @@ public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantsAdapter.
             this.restaurantLayout= itemView.findViewById(R.id.restaurant_item);
         }
     }
+
+
 }

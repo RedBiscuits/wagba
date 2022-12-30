@@ -1,8 +1,11 @@
 package com.wagba.ui.helpers;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -10,6 +13,7 @@ import androidx.navigation.Navigation;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.wagba.R;
+import com.wagba.ui.home.HomeFragmentDirections;
 
 public class NavigationHelper {
     private static NavController navController;
@@ -19,11 +23,9 @@ public class NavigationHelper {
     }
 
     private static BottomNavigationView navigationView;
-    private static BottomAppBar bottomAppBar;
 
     public static void initNavController(Activity activity ){
         navController = Navigation.findNavController(activity, R.id.nav_host_fragment_content_main);
-        bottomAppBar = activity.findViewById(R.id.bottomAppBar);
 
         navigationView= activity.findViewById(R.id.bottomNavView);
         navigationView.setBackground(null);
@@ -31,10 +33,19 @@ public class NavigationHelper {
 
     public static void navigate( int id) {
         try {
-            NavBackStackEntry backStackEntry = navController.getBackStackEntry(id);
-            navController.popBackStack(backStackEntry.getId() , false);
+            navController.getBackStackEntry(id);
+            navController.popBackStack(id , false);
         }catch (Exception e){
             navController.navigate(id);
+        }
+    }
+
+    public static void navigate(HomeFragmentDirections.ActionSecondFragmentToFoodFragment action) {
+        try {
+            navController.getBackStackEntry(action.getActionId());
+            navController.popBackStack(action.getActionId(), false);
+        }catch (Exception e){
+            navController.navigate(action);
         }
     }
 
@@ -48,35 +59,32 @@ public class NavigationHelper {
 
     public static void navigationListener(){
         navController.addOnDestinationChangedListener((navController, navDestination, bundle) -> {
-            if (navDestination.getId() == R.id.FirstFragment ||navDestination.getId() == R.id.registerFragment){
+            if (navDestination.getId() == R.id.FirstFragment ||navDestination.getId() == R.id.registerFragment||navDestination.getId() == R.id.foodFragment){
                 hideBottomNav();
             }else {
                 showBottomNav();
             }
         });
-
         navigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()){
+            switch (item.getItemId()) {
                 case R.id.HomeItem:
-                    item.setChecked(true);
                     navigate(R.id.SecondFragment);
-                    break;
+                    return true;
+
                 case R.id.profileItem:
-                    item.setChecked(true);
                     navigate(R.id.profile);
-                    break;
+                    return true;
             }
             return false;
         });
+
     }
 
     private static void hideBottomNav(){
         navigationView.setVisibility(View.GONE);
-        bottomAppBar.setVisibility(View.GONE);
     }
 
     private static void showBottomNav(){
         navigationView.setVisibility(View.VISIBLE);
-        bottomAppBar.setVisibility(View.VISIBLE);
     }
 }

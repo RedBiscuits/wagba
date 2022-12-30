@@ -64,12 +64,7 @@
         android:label="fragment_food"
         tools:layout="@layout/fragment_food" >
         <argument
-            android:name="category"
-            app:argType="string"
-            android:defaultValue='"Pizza"' />
-        <argument
-            android:name="name"
-            app:argType="string"
-            android:defaultValue='"Restaurant"' />
+            android:name="restaurant"
+            app:argType="com.wagba.data.models.Restaurant" />
     </fragment>
 </navigation>
