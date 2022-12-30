@@ -18,6 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.wagba.R;
 import com.wagba.data.models.CartItem;
+import com.wagba.ui.helpers.CartContentHelper;
 
 import java.util.ArrayList;
 
@@ -59,6 +60,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             count++;
             holder.itemCount.setText(count.toString());
             Long total = count * cartItems.get(position).getPrice();
+            CartContentHelper.getContent().get(position).setTotalPrice(total);
             holder.cartItemPrice.setText(total.toString());
         });
 
@@ -68,6 +70,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 count--;
                 holder.itemCount.setText(count.toString());
                 Long total = count * cartItems.get(position).getPrice();
+                CartContentHelper.getContent().get(position).setTotalPrice(total);
                 holder.cartItemPrice.setText(total.toString());
             }
         });

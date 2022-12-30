@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.wagba.R;
+import com.wagba.data.models.CartItem;
 import com.wagba.databinding.FragmentCartBinding;
 import com.wagba.ui.adapters.CartAdapter;
 import com.wagba.ui.adapters.FoodAdapter;
@@ -46,7 +48,22 @@ public class CartFragment extends Fragment {
         }
         ProgressHelper.dismiss();
         binding.cartReturn.setOnClickListener(view1 -> requireActivity().onBackPressed());
+        binding.cartProceedBtn.setOnClickListener(view3 -> {
+            if(binding.textNoCartItems.getVisibility() == View.VISIBLE){
+                Toast.makeText(requireContext() , "Please add items to cart first." , Toast.LENGTH_LONG).show();
+            }else {
+                Long total =0L;
+                for (CartItem item : CartContentHelper.getContent()){
+                    total += item.getTotalPrice();
+                }
+                if(total <= 0L){
+                    Toast.makeText(requireContext() , "Please specify quantity." , Toast.LENGTH_LONG).show();
+                }else {
 
+                }
+            }
+
+        });
 
     }
 }
