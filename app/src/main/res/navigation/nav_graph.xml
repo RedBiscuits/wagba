@@ -66,5 +66,13 @@
         <argument
             android:name="restaurant"
             app:argType="com.wagba.data.models.Restaurant" />
+        <action
+            android:id="@+id/action_foodFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.wagba.ui.cart.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
 </navigation>

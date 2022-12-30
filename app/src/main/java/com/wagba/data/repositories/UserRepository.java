@@ -1,6 +1,8 @@
 package com.wagba.data.repositories;
 
+import com.google.firebase.auth.PhoneAuthCredential;
 import com.wagba.data.db.UserDao;
+import com.wagba.data.firebase.FirebaseHelper;
 import com.wagba.data.models.User;
 
 
@@ -40,5 +42,9 @@ public class UserRepository {
             return Instance.getUserToken();
         }
         return "";
+    }
+
+    public static void updatePhoneNum(PhoneAuthCredential creds){
+        FirebaseHelper.updatePhoneNum(creds);
     }
 }

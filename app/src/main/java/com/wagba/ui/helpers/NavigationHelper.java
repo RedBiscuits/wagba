@@ -54,7 +54,11 @@ public class NavigationHelper {
 
     public static void navigationListener(){
         navController.addOnDestinationChangedListener((navController, navDestination, bundle) -> {
-            if (navDestination.getId() == R.id.FirstFragment ||navDestination.getId() == R.id.registerFragment||navDestination.getId() == R.id.foodFragment){
+            if (navDestination.getId() == R.id.FirstFragment
+                    ||navDestination.getId() == R.id.registerFragment
+                    ||navDestination.getId() == R.id.foodFragment
+                    ||navDestination.getId() == R.id.cartFragment
+            ){
                 hideBottomNav();
             }else {
                 showBottomNav();

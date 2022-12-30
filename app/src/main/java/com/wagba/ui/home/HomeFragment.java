@@ -55,7 +55,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
+        binding.toCartFAB.setOnClickListener(view3 -> NavigationHelper.navigate(R.id.cartFragment));
 
     }
 

@@ -10,10 +10,6 @@
         android:title="@string/orders" />
 
     <item
-        android:id="@+id/cartItem"
-        android:icon="@drawable/ic_outline_shopping_cart_24"
-        android:title="@string/cart" />
-    <item
         android:id="@+id/profileItem"
         android:icon="@drawable/ic_outline_person_24"
         android:title="@string/profile" />

@@ -20,6 +20,7 @@ import com.wagba.databinding.FragmentFoodBinding;
 import com.wagba.databinding.FragmentHomeBinding;
 import com.wagba.ui.adapters.FoodAdapter;
 import com.wagba.ui.adapters.RestaurantsAdapter;
+import com.wagba.ui.helpers.NavigationHelper;
 import com.wagba.ui.helpers.ProgressHelper;
 import com.wagba.ui.viewmodels.DataViewModel;
 
@@ -60,9 +61,8 @@ public class FoodFragment extends Fragment {
                 Toast.makeText(requireContext(),"Error occurred" , Toast.LENGTH_SHORT).show();
             }
         });
-
         binding.foodReturn.setOnClickListener(view1 -> requireActivity().onBackPressed());
-
+        binding.proceedBtn.setOnClickListener(view2 -> NavigationHelper.navigate(R.id.cartFragment));
     }
 
 

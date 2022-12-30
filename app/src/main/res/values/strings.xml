@@ -29,4 +29,7 @@
     <string name="home">Home</string>
     <string name="description">Lorem ipsum is a place holder text that is displayed in order to be a backup text when there is no text available.</string>
     <string name="addtocart">Add to cart</string>
+    <string name="ordernow">Proceed to cart</string>
+    <string name="paynow">proceed to payment</string>
+    <string name="nothing_to_display">Nothing to display.</string>
 </resources>

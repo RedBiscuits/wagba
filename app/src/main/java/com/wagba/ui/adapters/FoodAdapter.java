@@ -5,10 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -19,7 +17,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.wagba.R;
 import com.wagba.data.models.Food;
-import com.wagba.data.models.Restaurant;
+import com.wagba.ui.helpers.CartContentHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +40,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View listItem = layoutInflater.inflate(R.layout.food_item, parent, false);
 
-        return new FoodViewHolder(listItem);    }
+        return new FoodViewHolder(listItem);
+    }
 
     @Override
     public void onBindViewHolder(@NonNull FoodViewHolder holder, int position) {
@@ -54,7 +53,10 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
                 .apply(requestOptions)
                 .skipMemoryCache(true)
                 .into(holder.foodImage);
-        holder.addToCart.setOnClickListener(view -> Toast.makeText(context , "TODO" , Toast.LENGTH_SHORT).show());
+        holder.addToCart.setOnClickListener(view -> {
+            CartContentHelper.addItem(foodList.get(position));
+            System.out.println(CartContentHelper.getContent().toString());
+        });
         holder.foodDescription.setText(foodList.get(position).getDescription());
         holder.foodPrice.setText(foodList.get(position).getPrice().toString() + ".LE");
     }

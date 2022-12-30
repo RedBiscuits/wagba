@@ -7,6 +7,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -34,11 +35,15 @@ public class FirebaseHelper {
     public static Task<AuthResult> registerUser(String email , String password){
          return firebaseAuth.createUserWithEmailAndPassword(email  , password);
     }
-
     public static Task<SignInMethodQueryResult> checkEmailAvailability(String email){
-         return firebaseAuth.fetchSignInMethodsForEmail(email);
+
+        return firebaseAuth.fetchSignInMethodsForEmail(email);
     }
 
+
+    public static void updatePhoneNum(PhoneAuthCredential credentials){
+        firebaseAuth.getCurrentUser().updatePhoneNumber(credentials);
+    }
     public static Task<QuerySnapshot> getRestaurants(){
         return db.collection(restaurantCollection).get();
     }

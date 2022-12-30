@@ -11,6 +11,7 @@
     <color name="mainAppColor">#E84C4F</color>
     <color name="secondaryAppColor">#EDA345</color>
     <color name="plainTextColor">#3E4462</color>
+    <color name="fadeColor">#D1D1D1</color>
 
 
 </resources>

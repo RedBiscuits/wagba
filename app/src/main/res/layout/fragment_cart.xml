@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".ui.home.food.FoodFragment"
+    tools:context=".ui.cart.CartFragment"
     android:paddingHorizontal="@dimen/_12sdp"
     android:paddingTop="@dimen/_12sdp"
     >
 
     <ImageView
-        android:id="@+id/food_return"
+        android:id="@+id/cart_return"
         android:layout_width="@dimen/_20sdp"
         android:layout_height="@dimen/_20sdp"
         android:src="@drawable/arrow_back"
@@ -23,7 +23,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/holder"
+        android:text="@string/cart"
         android:textColor="@color/plainTextColor"
         android:textSize="@dimen/_18ssp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,22 +31,33 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/food_RV"
+        android:id="@+id/cart_RV"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingTop="@dimen/_4sdp"
+        android:paddingTop="@dimen/_8sdp"
         app:layout_constraintBottom_toTopOf="@+id/proceed_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
+    <TextView
+        android:id="@+id/text_no_cart_items"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nothing_to_display"
+        android:visibility="gone"
+        android:textSize="@dimen/_26sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <com.google.android.material.button.MaterialButton
         android:id="@+id/proceed_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/mainAppColor"
         android:layout_marginBottom="@dimen/_10sdp"
-        android:text="@string/ordernow"
+        android:text="@string/paynow"
         android:layout_marginHorizontal="@dimen/_22ssp"
         app:cornerRadius="@dimen/_22ssp"
         app:layout_constraintBottom_toBottomOf="parent"

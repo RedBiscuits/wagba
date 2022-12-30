@@ -24,6 +24,7 @@ public class AuthenticationViewModel extends ViewModel {
         AuthenticationRepository.loginUser(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()){
+
                         _login.postValue(true);
                     }else {
                         _login.postValue(false);

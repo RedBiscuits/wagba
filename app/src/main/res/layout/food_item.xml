@@ -5,12 +5,12 @@
     android:id="@+id/food_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/_18ssp">
+    android:layout_marginBottom="@dimen/_14sdp">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/food_image"
         android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_120sdp"
+        android:layout_height="@dimen/_110sdp"
 
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
