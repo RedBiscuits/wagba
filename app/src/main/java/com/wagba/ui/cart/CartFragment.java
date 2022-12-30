@@ -18,6 +18,7 @@ import com.wagba.databinding.FragmentCartBinding;
 import com.wagba.ui.adapters.CartAdapter;
 import com.wagba.ui.adapters.FoodAdapter;
 import com.wagba.ui.helpers.CartContentHelper;
+import com.wagba.ui.helpers.NavigationHelper;
 import com.wagba.ui.helpers.ProgressHelper;
 import com.wagba.ui.viewmodels.DataViewModel;
 
@@ -59,7 +60,7 @@ public class CartFragment extends Fragment {
                 if(total <= 0L){
                     Toast.makeText(requireContext() , "Please specify quantity." , Toast.LENGTH_LONG).show();
                 }else {
-
+                    NavigationHelper.navigate(R.id.paymentFragment);
                 }
             }
 

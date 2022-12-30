@@ -20,5 +20,13 @@ public class CartContentHelper {
     public static ArrayList<CartItem> getContent() {
         return content;
     }
+
+    public static Long getTotal(){
+        Long total = 0L;
+        for(CartItem item : content){
+            total += item.getTotalPrice();
+        }
+        return total;
+    }
 }
 

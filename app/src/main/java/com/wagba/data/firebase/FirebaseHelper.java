@@ -9,17 +9,22 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.SignInMethodQueryResult;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.wagba.data.models.Order;
 
 import java.util.function.DoubleBinaryOperator;
 
 public class FirebaseHelper {
     static FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     static FirebaseFirestore db = FirebaseFirestore.getInstance();
+
     private static final String restaurantCollection = "restaurants";
     private static final String foodCollection = "food";
+    private static final String ordersCollection = "orders";
+
     public static FirebaseUser getCurrentUser(){
         return firebaseAuth.getCurrentUser();
     }
@@ -50,4 +55,10 @@ public class FirebaseHelper {
     public static Task<QuerySnapshot> getFoodByCategory(String category){
         return db.collection(foodCollection).whereEqualTo("category" , category).get();
     }
+    public static Task<DocumentReference> postOrder(Order order){
+        return db.collection(ordersCollection).add(order);
+    }
+
 }
+
+
