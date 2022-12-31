@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.wagba.data.models.Food;
+import com.wagba.data.models.Order;
 import com.wagba.data.models.Restaurant;
 import com.wagba.data.repositories.DataRepository;
 
@@ -24,6 +25,11 @@ public class DataViewModel extends ViewModel {
     private MutableLiveData<List<Food>> _foodList = new MutableLiveData();
     public LiveData<List<Food>> getFoodList(){
         return _foodList;
+    }
+
+    private MutableLiveData<List<Order>> _orderList = new MutableLiveData();
+    public LiveData<List<Order>> getOrderList(){
+        return _orderList;
     }
 
 
@@ -69,5 +75,21 @@ public class DataViewModel extends ViewModel {
                     _error.postValue(true);
                 }
             });
+    }
+
+    public void getPreviousOrders(){
+        _error.postValue(false);
+        DataRepository.getPreviousOrders().addOnCompleteListener(task -> {
+            _orderList.postValue(new ArrayList<>());
+            if (task.isSuccessful()){
+                List<Order> temp = new ArrayList<>();
+                for (QueryDocumentSnapshot order : task.getResult()){
+                    temp.add(order.toObject(Order.class));
+                }
+                _orderList.postValue(temp);
+            }else{
+                _error.postValue(true);
+            }
+        });
     }
 }

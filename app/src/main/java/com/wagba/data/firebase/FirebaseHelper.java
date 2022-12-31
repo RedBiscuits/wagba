@@ -49,16 +49,26 @@ public class FirebaseHelper {
     public static void updatePhoneNum(PhoneAuthCredential credentials){
         firebaseAuth.getCurrentUser().updatePhoneNumber(credentials);
     }
+
     public static Task<QuerySnapshot> getRestaurants(){
         return db.collection(restaurantCollection).get();
     }
+
     public static Task<QuerySnapshot> getFoodByCategory(String category){
         return db.collection(foodCollection).whereEqualTo("category" , category).get();
     }
+
     public static Task<DocumentReference> postOrder(Order order){
         return db.collection(ordersCollection).add(order);
     }
 
+    public static Task<QuerySnapshot> getPreviousOrders(){
+        try {
+            return db.collection(ordersCollection).whereEqualTo("email" , firebaseAuth.getCurrentUser().getEmail()).get();
+        }catch (Exception e){
+            return db.collection(ordersCollection).whereEqualTo("email" , "meowbrrr57@gmail.com").get();
+        }
+    }
 }
 
 

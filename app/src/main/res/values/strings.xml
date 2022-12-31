@@ -32,4 +32,11 @@
     <string name="ordernow">Proceed to cart</string>
     <string name="paynow">proceed to payment</string>
     <string name="nothing_to_display">Cart is empty.</string>
+    <string name="time">Time</string>
+    <string name="date">Date</string>
+    <string name="location">Location</string>
+    <string name="total">Total</string>
+    <string name="no_previous_orders">No previous orders.</string>
+    <string name="history">History</string>
+    <string name="user_name">Username</string>
 </resources>

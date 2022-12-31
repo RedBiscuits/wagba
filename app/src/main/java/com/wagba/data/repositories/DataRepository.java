@@ -12,4 +12,9 @@ public class DataRepository {
     public static Task<QuerySnapshot> getFoodByCategory(String category){
         return FirebaseHelper.getFoodByCategory(category);
     }
+
+    public static Task<QuerySnapshot> getPreviousOrders(){
+        return FirebaseHelper.getPreviousOrders();
+    }
+
 }

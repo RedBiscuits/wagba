@@ -60,7 +60,11 @@ public class CartFragment extends Fragment {
                 if(total <= 0L){
                     Toast.makeText(requireContext() , "Please specify quantity." , Toast.LENGTH_LONG).show();
                 }else {
-                    NavigationHelper.navigate(R.id.paymentFragment);
+                    if (CartContentHelper.conductFromWallet(total)){
+                        NavigationHelper.navigate(R.id.paymentFragment);
+                    }   else {
+                        Toast.makeText(requireContext(),"Insufficient balance" , Toast.LENGTH_LONG).show();
+                    }
                 }
             }
 

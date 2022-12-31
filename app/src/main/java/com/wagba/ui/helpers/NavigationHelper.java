@@ -71,6 +71,10 @@ public class NavigationHelper {
                     navigate(R.id.SecondFragment);
                     return true;
 
+                case R.id.ordersItem:
+                    navigate(R.id.ordersFragment);
+                    return true;
+
                 case R.id.profileItem:
                     navigate(R.id.profile);
                     return true;

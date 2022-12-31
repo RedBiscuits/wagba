@@ -6,127 +6,101 @@
     android:layout_height="match_parent"
     tools:context=".ui.profile.Profile">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/profileCard"
-        android:layout_width="@dimen/_300sdp"
-        android:layout_height="@dimen/_80sdp"
-        android:layout_marginTop="@dimen/_40sdp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_180sdp"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:textColor="@color/plainTextColor"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/porder_email_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="example@domain.subdomain"
+            android:textColor="@color/plainTextColor"
+            android:textSize="@dimen/_13ssp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8sdp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_name"
+            android:textColor="@color/plainTextColor"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/porder_username_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="New User"
+            android:textColor="@color/plainTextColor"
+            android:textSize="@dimen/_13ssp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat7">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wallet"
+            android:textColor="@color/plainTextColor"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/walletAmountTv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_60sdp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/engineer" />
-
-            <TextView
-                android:id="@+id/nameTv"
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:text="@string/profile_placeholder"
-                android:textColor="@color/plainTextColor"
-                android:textSize="@dimen/_15ssp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/numberTv"
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:textColor="@color/plainTextColor"
-                android:textSize="@dimen/_15ssp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/nameTv"
-                app:layout_constraintStart_toStartOf="@+id/nameTv"
-                app:layout_constraintTop_toBottomOf="@+id/nameTv"
-                tools:text="01234567890" />
-
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_70sdp"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:background="@android:color/transparent"
-                android:elevation="0dp"
-                android:src="@drawable/ic_baseline_arrow_forward_ios_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/nameTv"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.541" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/profielTv"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_marginTop="@dimen/_50sdp"
-        android:paddingStart="@dimen/_15sdp"
-        android:paddingTop="@dimen/_8sdp"
-        android:text="@string/profile"
-        android:textColor="@color/plainTextColor"
-        android:textSize="@dimen/_16ssp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileCard" />
-
-    <TextView
-        android:id="@+id/paymentsTv"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:paddingStart="@dimen/_15sdp"
-        android:paddingTop="@dimen/_8sdp"
-        android:text="@string/payemnts"
-        android:textColor="@color/plainTextColor"
-        android:textSize="@dimen/_16ssp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profielTv" />
-
-    <TextView
-        android:id="@+id/walletTv"
-        android:layout_width="@dimen/_220sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:paddingStart="@dimen/_15sdp"
-        android:paddingTop="@dimen/_8sdp"
-        android:text="@string/wallet"
-        android:textColor="@color/plainTextColor"
-        android:textSize="@dimen/_16ssp"
-        app:layout_constraintRight_toLeftOf="@id/walletAmountTv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/paymentsTv" />
-
-    <TextView
-        android:id="@+id/walletAmountTv"
-        android:layout_width="@dimen/_80sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:paddingStart="@dimen/_5sdp"
-        android:paddingTop="@dimen/_10sdp"
-        android:text="300.0"
-        android:textColor="@color/plainTextColor"
-        app:layout_constraintBottom_toBottomOf="@+id/walletTv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.477"
-        app:layout_constraintStart_toEndOf="@+id/walletTv" />
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="300.0"
+            android:textColor="@color/plainTextColor"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/walletTv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.477"
+            app:layout_constraintStart_toEndOf="@+id/walletTv" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
     <com.google.android.material.button.MaterialButton
@@ -139,5 +113,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/walletTv" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat8" />
 </androidx.constraintlayout.widget.ConstraintLayout>

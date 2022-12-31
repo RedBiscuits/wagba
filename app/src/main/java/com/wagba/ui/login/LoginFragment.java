@@ -31,7 +31,6 @@ public class LoginFragment extends Fragment {
         viewModel = new ViewModelProvider(this).get(AuthenticationViewModel.class);
         binding = FragmentLoginBinding.inflate(inflater, container, false);
 
-
         return binding.getRoot();
 
     }
@@ -79,7 +78,8 @@ public class LoginFragment extends Fragment {
         if (validEmail && validPassword) {
             viewModel.loginUser(
                     Objects.requireNonNull(binding.emailEdittext.getText()).toString(),
-                    Objects.requireNonNull(binding.passwordEdittext.getText()).toString()
+                    Objects.requireNonNull(binding.passwordEdittext.getText()).toString(),
+                    requireContext()
             );
         } else {
             validateInput();
