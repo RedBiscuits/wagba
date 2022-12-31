@@ -6,7 +6,9 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.wagba.data.firebase.FirebaseHelper;
 import com.wagba.data.repositories.AuthenticationRepository;
+import com.wagba.data.repositories.UserRepository;
 
 public class AuthenticationViewModel extends ViewModel {
 
@@ -25,6 +27,8 @@ public class AuthenticationViewModel extends ViewModel {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()){
                         _login.postValue(true);
+                        UserRepository.addUser(FirebaseHelper.getCurrentUser());
+
                     }else {
                         _login.postValue(false);
                     }

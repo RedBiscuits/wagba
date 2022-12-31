@@ -16,11 +16,58 @@ public class User {
     private String userID = "";
     private String userToken = "";
     private String phoneNumber = "";
+    private double totalWalletAmount = 0.0;
+
+    public double getTotalWalletAmount() {
+        return totalWalletAmount;
+    }
+
+    public void setTotalWalletAmount(double totalWalletAmount) {
+        this.totalWalletAmount = totalWalletAmount;
+    }
+
+    public double getConsumedWalletAmount() {
+        return consumedWalletAmount;
+    }
+
+    public void setConsumedWalletAmount(double consumedWalletAmount) {
+        this.consumedWalletAmount = consumedWalletAmount;
+    }
+
+    public double getRemainingWalletAmount() {
+        return remainingWalletAmount;
+    }
+
+    public void setRemainingWalletAmount() {
+        this.remainingWalletAmount = totalWalletAmount - consumedWalletAmount;
+    }
+
+    private double consumedWalletAmount = 0.0;
+    private double remainingWalletAmount = 0.0;
 
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setUserID(@NonNull String userID) {
+        this.userID = userID;
+    }
+
+    public void setUserToken(String userToken) {
+        this.userToken = userToken;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     public User(String email, String username, String userID, String userToken, String phoneNumber) {
         this.email = email;
@@ -28,6 +75,7 @@ public class User {
         this.userID = userID;
         this.userToken = userToken;
         this.phoneNumber = phoneNumber;
+
     }
 
     public String getUserToken() {
@@ -46,4 +94,6 @@ public class User {
     public String getUserID() {
         return userID;
     }
+
+
 }
