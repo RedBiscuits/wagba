@@ -52,13 +52,9 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
     public void onBindViewHolder(@NonNull OrdersViewHolder holder, int position) {
         holder.orderTime.setText(orders.get(position).getTime());
 
-        if (orders.get(position).getConfirmed()){
-            holder.orderConfirmed.setText("CONFIRMED");
-            holder.orderConfirmed.setTextColor(Color.parseColor("#00FF00"));
-        }else {
-            holder.orderConfirmed.setText("PENDING");
-            holder.orderConfirmed.setTextColor(Color.parseColor("#EDA345"));
-        }
+        holder.orderConfirmed.setText(orders.get(position).getStatus());
+        holder.orderConfirmed.setTextColor(Color.parseColor("#00FF00"));
+
         holder.orderItems.setText(orders.get(position).getItems());
         holder.orderEmail.setText(orders.get(position).getEmail());
         holder.orderAmount.setText(orders.get(position).getAmount());

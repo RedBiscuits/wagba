@@ -6,6 +6,15 @@ public class Order {
     private String date;
     private String amount;
     private String email;
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public Boolean getConfirmed() {
         return confirmed;

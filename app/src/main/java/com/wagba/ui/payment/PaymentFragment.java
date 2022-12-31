@@ -54,6 +54,7 @@ public class PaymentFragment extends Fragment {
         //email
         binding.orderEmailTV.setText(FirebaseHelper.getCurrentUser().getEmail());
         order.setEmail(FirebaseHelper.getCurrentUser().getEmail());
+        order.setStatus("Pending");
 
         //date
         String formattedDate = df.format(c);

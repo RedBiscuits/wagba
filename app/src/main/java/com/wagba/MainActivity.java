@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setTheme(R.style.Theme_Wagba);
         setContentView(binding.getRoot());
 
         NavigationHelper.initNavController(this);
