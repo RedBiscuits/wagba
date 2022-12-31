@@ -17,4 +17,7 @@ public interface UserDao {
 
      @Query("select * from User")
      User getUser();
+
+     @Query("delete from User")
+     void logoutUser();
 }

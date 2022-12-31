@@ -30,6 +30,7 @@ public class Profile extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         binding.logoutBtn.setOnClickListener(view -> {
             FirebaseHelper.logoutUser();
+            UserDb.getDatabase(requireContext()).userDao().logoutUser();
             NavigationHelper.navigate(R.id.action_profile_to_FirstFragment);
         });
         binding.walletAmountTv.setText(Long.toString(CartContentHelper.getWallet()));
