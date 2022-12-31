@@ -16,11 +16,6 @@ import com.wagba.data.repositories.UserRepository;
 
 public class UserViewModel extends ViewModel {
 
-    public UserViewModel(Context context) {
-
-
-        firebaseMutableLiveD.postValue(FirebaseHelper.getCurrentUser());
-    }
 
     private MutableLiveData<FirebaseUser> firebaseMutableLiveD = new MutableLiveData<>();
 
@@ -28,15 +23,16 @@ public class UserViewModel extends ViewModel {
     private MutableLiveData<User> userMutableLiveData = new MutableLiveData<>();
 
     public LiveData<User> getUser() {
-        userMutableLiveData.setValue(getUserfromDb());
         return userMutableLiveData;
+    }
+    public void updateUser(User user) {
+        UserRepository.updateUser(user);
+        userMutableLiveData.setValue(user);
     }
 
 
-
-
-    private User getUserfromDb() {
-        return UserRepository.getUser();
+    public void getUserFromDb() {
+        userMutableLiveData.postValue(UserRepository.getUser());
     }
 
 }

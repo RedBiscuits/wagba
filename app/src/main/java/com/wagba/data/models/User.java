@@ -1,6 +1,7 @@
 package com.wagba.data.models;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -8,17 +9,28 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
 
+import java.util.Objects;
+
 @Entity
 public class User {
-    private String email = "", username = "";
+    @Nullable
+    private String email, username;
     @PrimaryKey
     @NonNull
-    private String userID = "";
-    private String userToken = "";
-    private String phoneNumber = "";
+    private String userID;
+    private String userToken;
+    private String phoneNumber;
     private double totalWalletAmount = 0.0;
+    private double consumedWalletAmount = 0.0;
+    private double remainingWalletAmount = 0.0;
+    public User(String email, String username, String userID, String userToken, String phoneNumber) {
+        this.email = email;
+       this.username = username;
+        this.userID = userID;
+        this.userToken = userToken;
+        this.phoneNumber =  phoneNumber;
 
-    public double getTotalWalletAmount() {
+    }    public double getTotalWalletAmount() {
         return totalWalletAmount;
     }
 
@@ -38,12 +50,10 @@ public class User {
         return remainingWalletAmount;
     }
 
-    public void setRemainingWalletAmount() {
-        this.remainingWalletAmount = totalWalletAmount - consumedWalletAmount;
+    public void setRemainingWalletAmount(double remainingWalletAmount) {
+        this.remainingWalletAmount = (remainingWalletAmount);
     }
 
-    private double consumedWalletAmount = 0.0;
-    private double remainingWalletAmount = 0.0;
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -69,14 +79,7 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public User(String email, String username, String userID, String userToken, String phoneNumber) {
-        this.email = email;
-        this.username = username;
-        this.userID = userID;
-        this.userToken = userToken;
-        this.phoneNumber = phoneNumber;
 
-    }
 
     public String getUserToken() {
         return userToken;

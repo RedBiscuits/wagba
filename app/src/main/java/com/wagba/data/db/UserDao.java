@@ -20,5 +20,5 @@ public interface UserDao {
      @Query("delete from User")
      void deleteUser();
      @Query("select remainingWalletAmount from User where userID = :userId")
-     String getUserCurrentAmount(int userId);
+     Double getUserCurrentAmount(int userId);
 }

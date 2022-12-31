@@ -1,5 +1,6 @@
 package com.wagba.ui.viewmodels;
 
+import android.util.Log;
 import android.util.Patterns;
 
 import androidx.lifecycle.LiveData;

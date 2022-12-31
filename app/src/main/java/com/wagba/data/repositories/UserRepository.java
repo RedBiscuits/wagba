@@ -19,11 +19,24 @@ public class UserRepository {
 
     public static void addUser(FirebaseUser user) {
         if (user != null) {
-          userDao.addUser(new User(user.getEmail(),
+            User user1 = new User(user.getEmail(),
                     user.getDisplayName(),
                     user.getUid(),
                     user.getIdToken(false).toString(),
-                    user.getPhoneNumber()));
+                    user.getPhoneNumber());
+            user1.setTotalWalletAmount(0);
+            user1.setConsumedWalletAmount(0);
+            user1.setRemainingWalletAmount(user1.getTotalWalletAmount() - user1.getRemainingWalletAmount());
+
+            if (user.getPhoneNumber() == null) {
+                user1.setPhoneNumber("000");
+            }
+            if (user.getDisplayName() == null) {
+                user1.setUsername("000");
+
+                Log.d("current user", user1.getEmail() + "+" + user1.getUserID() + "+" + user1.getPhoneNumber() + "+" + user1.getUserToken() + "+" + user1.getUsername());
+                userDao.addUser(user1);
+            }
         } else
             Log.d("firebase user", "firebase user doesn't exist");
     }
@@ -53,12 +66,15 @@ public class UserRepository {
         }
         return "";
     }
-    public static void updateUser(User user){
+
+    public static void updateUser(User user) {
         userDao.updateUser(user);
     }
-    public static void userLogout(){
+
+    public static void userLogout() {
         FirebaseHelper.logoutUser();
         userDao.deleteUser();
         Instance = null;
+        Log.d("user", "user logout");
     }
 }
