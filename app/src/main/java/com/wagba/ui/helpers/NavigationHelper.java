@@ -58,6 +58,7 @@ public class NavigationHelper {
                     ||navDestination.getId() == R.id.registerFragment
                     ||navDestination.getId() == R.id.foodFragment
                     ||navDestination.getId() == R.id.cartFragment
+                    ||navDestination.getId() == R.id.paymentFragment
             ){
                 hideBottomNav();
             }else {

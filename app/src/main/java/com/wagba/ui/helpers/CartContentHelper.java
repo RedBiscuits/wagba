@@ -20,6 +20,9 @@ public class CartContentHelper {
     public static ArrayList<CartItem> getContent() {
         return content;
     }
+    public static void resetContent() {
+        content.clear();
+    }
 
     public static Long getTotal(){
         Long total = 0L;
@@ -27,6 +30,14 @@ public class CartContentHelper {
             total += item.getTotalPrice();
         }
         return total;
+    }
+
+    public static String getItems(){
+        StringBuilder items = new StringBuilder();
+        for(CartItem item : content){
+            items.append(item.getTotalPrice() / item.getPrice()).append(' ').append(item.getName()).append("\n");
+        }
+        return items.toString();
     }
 }
 

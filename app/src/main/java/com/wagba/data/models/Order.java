@@ -7,6 +7,26 @@ public class Order {
     private String amount;
     private String email;
 
+    public Boolean getConfirmed() {
+        return confirmed;
+    }
+
+    public void setConfirmed(Boolean confirmed) {
+        this.confirmed = confirmed;
+    }
+
+    private Boolean confirmed = false;
+
+    public String getItems() {
+        return items;
+    }
+
+    public void setItems(String items) {
+        this.items = items;
+    }
+
+    private String items;
+
     public String getLocation() {
         return location;
     }

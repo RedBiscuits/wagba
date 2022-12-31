@@ -10,8 +10,11 @@ import com.wagba.data.models.User;
 
 @Dao
 public interface UserDao {
+
      @Insert (onConflict = OnConflictStrategy.REPLACE)
      void addUser(User user);
+
+
      @Query("select * from User")
      User getUser();
 }
