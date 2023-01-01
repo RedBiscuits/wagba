@@ -1,5 +1,6 @@
 package com.wagba.ui.payment;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,16 +22,21 @@ import com.wagba.ui.helpers.CartContentHelper;
 import com.wagba.ui.helpers.NavigationHelper;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
 public class PaymentFragment extends Fragment {
-    FragmentPaymentBinding binding;
-    Order order;
-    Date date;
-    Date c ;
-    SimpleDateFormat df ;
+    private FragmentPaymentBinding binding;
+    private Order order;
+    private Date date;
+    private Date c ;
+    private SimpleDateFormat df ;
+    private LocalTime current;
+    private LocalTime hour10half;
+    private LocalTime hour1half;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +46,11 @@ public class PaymentFragment extends Fragment {
         date = new Date();
         c = Calendar.getInstance().getTime();
         df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            current = LocalTime.now(ZoneId.systemDefault());
+            hour10half = LocalTime.parse("10:30");
+            hour1half = LocalTime.parse("13:30");
+        }
         return binding.getRoot();
     }
 
@@ -62,7 +73,6 @@ public class PaymentFragment extends Fragment {
         order.setDate(formattedDate);
 
         binding.placeOrderBTN.setOnClickListener(view1 -> {
-            int now = date.getHours();
 
             int locationId = binding.locationGroup.getCheckedRadioButtonId();
             int timeId = binding.timeGroup.getCheckedRadioButtonId();
@@ -80,20 +90,22 @@ public class PaymentFragment extends Fragment {
 
             String hour = "Tomorrow ";
             if (timeId == R.id.pm3_radio) {
-                if (now > 11) {
-                    order.setTime( hour + ' ' +binding.pm3Radio.getText().toString());
-                    System.out.println("3pm tomorrow ");
-                    Toast.makeText(requireContext(), "Your order is placed for tomorrow.", Toast.LENGTH_LONG).show();
-                }else {
-                    order.setTime(binding.pm3Radio.getText().toString());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    if (current.isAfter(hour1half)) {
+                        order.setTime( hour + ' ' +binding.pm3Radio.getText().toString());
+                        Toast.makeText(requireContext(), "Your order is placed for tomorrow.", Toast.LENGTH_LONG).show();
+                    }else {
+                        order.setTime(binding.pm3Radio.getText().toString());
+                    }
                 }
             } else if (timeId == R.id.pm12_radio) {
-                if (now > 8) {
-                    order.setTime(hour + ' ' + binding.pm12Radio.getText().toString());
-                    System.out.println("3pm tomorrow ");
-                    Toast.makeText(requireContext(), "Your order is placed for tomorrow.", Toast.LENGTH_LONG).show();
-                }else {
-                    order.setTime( binding.pm12Radio.getText().toString());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    if (current.isAfter(hour10half)) {
+                        order.setTime(hour + ' ' + binding.pm12Radio.getText().toString());
+                        Toast.makeText(requireContext(), "Your order is placed for tomorrow.", Toast.LENGTH_LONG).show();
+                    }else {
+                        order.setTime( binding.pm12Radio.getText().toString());
+                    }
                 }
             } else {
                 Toast.makeText(requireContext(), "Please select a valid time.", Toast.LENGTH_LONG).show();
