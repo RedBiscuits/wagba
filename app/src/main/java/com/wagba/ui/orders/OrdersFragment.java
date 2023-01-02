@@ -8,19 +8,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.wagba.data.models.Order;
 import com.wagba.databinding.FragmentOrdersBinding;
 import com.wagba.ui.adapters.OrdersAdapter;
-import com.wagba.ui.helpers.CartContentHelper;
 import com.wagba.ui.helpers.ProgressHelper;
 import com.wagba.ui.viewmodels.DataViewModel;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class OrdersFragment extends Fragment {
@@ -44,11 +40,11 @@ public class OrdersFragment extends Fragment {
 
         ProgressHelper.show(requireContext());
         binding.porderRV.setLayoutManager(new LinearLayoutManager(requireContext()));
-        adapter.setRestaurants(new ArrayList<>());
+        adapter.setOrders(new ArrayList<>());
         binding.porderRV.setAdapter(adapter);
 
         viewModel.getOrderList().observe(requireActivity(), orders -> {
-            adapter.setRestaurants(orders);
+            adapter.setOrders(orders);
             adapter.notifyDataSetChanged();
             binding.noPrevOrders.setVisibility(View.GONE);
             ProgressHelper.dismiss();

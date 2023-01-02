@@ -1,7 +1,5 @@
 package com.wagba.data.models;
 
-import com.google.firebase.firestore.PropertyName;
-
 public class CartItem {
     private String name = "";
     private String imageUrl = "";

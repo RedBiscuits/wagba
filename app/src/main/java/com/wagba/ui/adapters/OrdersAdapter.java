@@ -35,7 +35,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
 
     List<Order> orders = new ArrayList<>();
 
-    public void setRestaurants(List<Order> orders) {
+    public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
 
