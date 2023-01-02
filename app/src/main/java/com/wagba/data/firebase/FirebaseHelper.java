@@ -1,8 +1,5 @@
 package com.wagba.data.firebase;
 
-import androidx.annotation.NonNull;
-
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -11,11 +8,8 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.wagba.data.models.Order;
-
-import java.util.function.DoubleBinaryOperator;
 
 public class FirebaseHelper {
     static FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();

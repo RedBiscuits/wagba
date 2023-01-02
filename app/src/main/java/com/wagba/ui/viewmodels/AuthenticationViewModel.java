@@ -7,9 +7,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.google.firebase.auth.FirebaseUser;
-import com.wagba.data.db.UserDb;
-import com.wagba.data.models.User;
 import com.wagba.data.repositories.AuthenticationRepository;
 
 public class AuthenticationViewModel extends ViewModel {

@@ -56,6 +56,10 @@ public class CartFragment extends Fragment {
                 Long total =0L;
                 for (CartItem item : CartContentHelper.getContent()){
                     total += item.getTotalPrice();
+                    if(item.getTotalPrice() == 0L){
+                        Toast.makeText(requireContext(), "Please specify quantity for each item" , Toast.LENGTH_LONG).show();
+                        return;
+                    }
                 }
                 if(total <= 0L){
                     Toast.makeText(requireContext() , "Please specify quantity." , Toast.LENGTH_LONG).show();

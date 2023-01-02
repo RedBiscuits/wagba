@@ -49,6 +49,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         holder.cartItemName.setText(cartItems.get(position).getName());
         holder.cartItemDesc.setText(cartItems.get(position).getDescription());
+        cartItems.get(position).setTotalPrice(Long.parseLong(holder.itemCount.getText().toString()));
+
         RequestOptions requestOptions = new RequestOptions();
         requestOptions = requestOptions.transforms(new CenterCrop(), new RoundedCorners(24));
         Glide.with(context).load(cartItems.get(position).getImageUrl())

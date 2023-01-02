@@ -41,7 +41,7 @@
             android:layout_height="match_parent"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-
+            android:text="meowbrrr57@gmail.com"
             android:lines="1"
             android:paddingStart="@dimen/_22ssp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -67,6 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/password"
+            android:text="asdQWE123!@#"
             android:inputType="textPassword"
             android:lines="1"
             android:maxLength="16"
